@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier Produit</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <% if (message) { %>
+        <div>
+            <strong>Error:</strong> <%= message %>
+        </div>
+    <% } %>
+    <h1>Modifier Produit</h1>
+    <form action="/api/edit/products/<%= product.product_id %>" method="POST">
+        <label for="product_name">Nom du Produit :</label>
+        <input type="text" id="product_name" name="product_name" value="<%= product.product_name %>" required><br><br>
+
+        <label for="product_description">Description :</label>
+        <textarea id="product_description" name="product_description" rows="4" required><%= product.product_description %></textarea><br><br>
+
+        <label for="in_stock">En Stock :</label>
+        <input type="number" id="in_stock" name="in_stock" value="<%= product.in_stock %>" required><br><br>
+
+        <label for="price">Prix :</label>
+        <input type="number" id="price" name="price" value="<%= product.price %>" step="0.01" required><br><br>
+
+        <label for="brand">Marque :</label>
+        <input type="text" id="brand" name="brand" value="<%= product.brand %>" required><br><br>
+
+        <input type="submit" value="Enregistrer les Modifications">
+    </form>
+</body>
+</html>

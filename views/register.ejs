@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <h1>Inscription</h1>
+    <form action="/api/register" method="POST">
+        <label for="user_name">Nom d'utilisateur :</label>
+        <input type="text" id="user_name" name="user_name" required><br><br>
+
+        <label for="user_email">Email :</label>
+        <input type="email" id="user_email" name="user_email" required><br><br>
+
+        <label for="user_phone">Téléphone :</label>
+        <input type="text" id="user_phone" name="user_phone" required><br><br>
+
+        <label for="user_fname">Prénom :</label>
+        <input type="text" id="user_fname" name="user_fname" required><br><br>
+
+        <label for="user_lname">Nom :</label>
+        <input type="text" id="user_lname" name="user_lname" required><br><br>
+
+        <label for="user_password">Mot de passe :</label>
+        <input type="password" id="user_password" name="user_password" required><br><br>
+
+        <label for="user_city">Ville :</label>
+        <select id="user_city" name="user_city">
+            <% cities.forEach(city => { %>
+                <option value="<%= city.id %>"><%= city.name %></option>
+            <% }); %>
+        </select><br><br>
+
+        <label for="user_adress">Adresse :</label>
+        <input type="text" id="user_adress" name="user_adress" required><br><br>
+
+        <input type="submit" value="S'inscrire">
+    </form>
+
+    <div class="container">
+        <p class="login_link">Déjà inscrit ? <a href="/login">Connectez-vous</a></p>
+
+        <% if (message) { %>
+            <p class="message"><%= message %></p>
+        <% } %>
+    </div>
+</body>
+</html>

@@ -1,0 +1,209 @@
+/* Styles combinés */
+
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    font-weight: bold;
+    color: #555;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select,
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="submit"] {
+    background-color: #a0a0a0;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Styles spécifiques à la page "login" */
+.message,
+.register_link,
+.login_link {
+    padding: 20px;
+    background-color: #a0a0a0;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+}
+
+.register_link a,
+.login_link a {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Styles spécifiques à la page "product" */
+.welcome {
+    background-color: #a0a0a0;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    font-size: 1em;
+}
+
+.welcome a {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #a0a0a0;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.3em;
+    background-color: #fff;
+}
+
+.products-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-card h2 {
+    margin-top: 10px;
+    font-size: 1.25rem;
+}
+
+.product-card p {
+    margin: 10px 0;
+    color: #666;
+    font-weight: bold;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.pagination ul {
+    list-style: none;
+    padding: 0;
+}
+
+.pagination ul li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.pagination ul li a {
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #a0a0a0;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.pagination ul li a:hover {
+    background-color: #0056b3;
+}
+
+.product-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.update-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.update-button:hover {
+    background-color: #0056b3;
+}
+
+.delete-form {
+    box-shadow: none;
+    border: none;
+}
+
+.create-button {
+    display: block; 
+    width: fit-content; 
+    background-color: green; 
+    color: white; /* Couleur du texte blanche */
+    padding: 10px 20px; 
+    margin: 12px auto; 
+    border-radius: 5px; 
+    text-decoration: none; 
+    text-align: center; 
+}
+
+.create-button:hover {
+    background-color: darkgreen; 
+    cursor: pointer; 
+}

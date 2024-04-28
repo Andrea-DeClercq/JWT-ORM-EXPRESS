@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajouter Produit</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <% if (message) { %>
+        <div>
+            <strong>Error:</strong> <%= message %>
+        </div>
+    <% } %>
+    <h1>Ajouter Produit</h1>
+    <form action="/api/create/products" method="POST">
+        <label for="product_name">Nom du Produit :</label>
+        <input type="text" id="product_name" name="product_name" required><br><br>
+
+        <label for="product_description">Description :</label>
+        <textarea id="product_description" name="product_description" rows="4" required></textarea><br><br>
+
+        <label for="in_stock">En Stock :</label>
+        <input type="number" id="in_stock" name="in_stock" required><br><br>
+
+        <label for="price">Prix :</label>
+        <input type="number" id="price" name="price" step="0.01" required><br><br>
+
+        <label for="brand">Marque :</label>
+        <input type="text" id="brand" name="brand" required><br><br>
+
+        <label for="category_id">Catégorie :</label>
+        <select id="category_id" name="category_id" required>
+            <!-- Inclure les options pour les catégories (exemple) -->
+            <option value="1">Électronique</option>
+            <option value="2">Vêtements</option>
+            <!-- Ajoutez d'autres options selon vos besoins -->
+        </select><br><br>
+
+        <label for="dossier">Dossier :</label>
+        <input type="text" id="dossier" name="dossier" required><br><br>
+
+        <label for="nbr_image">Nombre d'Images :</label>
+        <input type="number" id="nbr_image" name="nbr_image" required><br><br>
+
+        <label for="date_added">Date d'ajout :</label>
+        <input type="date" id="date_added" name="date_added" required><br><br>
+
+        <input type="submit" value="Enregistrer la fiche produit">
+    </form>
+</body>
+</html>

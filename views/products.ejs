@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produits</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <% if (message) { %>
+        <h1 class="message"><%= message %> <a href="/products">Recharger la page</a></h1>
+    <% } else { %>
+        <div class="welcome">
+            <h1>Bienvenue <%= user_name %></h1>
+            <a href="/api/logout">Déconnexion</a>
+        </div>
+        <!-- Liste des produits -->
+        <a href="/products/create" class="create-button">Créer un produit</a>
+        <div class="products-list">
+            <% products.forEach(product => { %>
+                <div class="product-card">
+                    <h2><%= product.product_name %></h2>
+                    <p>Prix : <%= product.price %> €</p>
+                    <p>En stock : <%= product.in_stock %> unités</p>
+                    <div class="product-actions">
+                        <a href="/products/edit/<%= product.product_id %>" class="update-button">Mise à Jour</a>
+                        <form action="/api/products/delete/<%= product.product_id %>" method="POST" class="delete-form">
+                            <button type="submit" onclick="return confirm('Êtes-vous sûr de vouloir supprimer ce produit ?')" class="delete-button">Supprimer</button>
+                        </form>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="pagination">
+            <% if (Math.ceil(totalCount / limit) > 1) { %>
+                <ul>
+                    <% const totalPages = Math.ceil(totalCount / limit); %>
+                    <% const maxPagesToShow = 5; %>
+                    <% const currentPage = parseInt(page); %>
+                    <% const middlePage = Math.ceil(maxPagesToShow / 2); %>
+                    
+                    <% // Déterminer la plage de pages à afficher en fonction de la position de la page actuelle %>
+                    <% let startPage, endPage; %>
+                    <% if (currentPage <= middlePage) { %>
+                        <% startPage = 1; %>
+                        <% endPage = Math.min(totalPages, maxPagesToShow); %>
+                    <% } else if (currentPage >= totalPages - middlePage) { %>
+                        <% startPage = Math.max(1, totalPages - maxPagesToShow + 1); %>
+                        <% endPage = totalPages; %>
+                    <% } else { %>
+                        <% startPage = currentPage - middlePage + 1; %>
+                        <% endPage = currentPage + middlePage - 1; %>
+                    <% } %>
+        
+                    <% // Afficher la première page si nécessaire %>
+                    <% if (startPage > 1) { %>
+                        <li><a href="/products?page=1">1</a></li>
+                        <% if (startPage > 2) { %>
+                            <li>...</li>
+                        <% } %>
+                    <% } %>
+        
+                    <% // Afficher les pages dans la plage déterminée %>
+                    <% for (let i = startPage; i <= endPage; i++) { %>
+                        <li <% if (i === currentPage) { %>class="active"<% } %>><a href="/products?page=<%= i %>"><%= i %></a></li>
+                    <% } %>
+        
+                    <% // Afficher la dernière page si nécessaire %>
+                    <% if (endPage < totalPages) { %>
+                        <% if (endPage < totalPages - 1) { %>
+                            <li>...</li>
+                        <% } %>
+                        <li><a href="/products?page=<%= totalPages %>"><%= totalPages %></a></li>
+                    <% } %>
+                </ul>
+            <% } %>
+        </div>        
+    <% } %>  
+</body>
+</html>
